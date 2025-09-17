@@ -22,7 +22,6 @@ def analyze_text(request: AnalysisRequest):
             {"text": "UNICAP", "label": "ORG"}
         ],
         elapsed_ms=123,
-        received_at=datetime.now()
     )
     
     return response

@@ -4,29 +4,32 @@ from pydantic import BaseModel, Field
 from typing import Dict, List, Optional
 from enum import Enum
 
-"""
-Enumeration representing the different AI tasks to be performed.
-"""
+
 class TaskType(str, Enum):
+    """
+    Enumeration representing the different AI tasks to be performed.
+    """
     SENT = "sentiment"
     NER = "ner" # Named Entity Recognition    
     OCR = "ocr" # Optical Character Recognition
     CAP = "caption"
     CUS = "custom"
 
-"""
-Model representing the user requests for analysis.
-"""
+
 class AnalysisRequest(BaseModel):
+    """
+    Model representing the user requests for analysis.
+    """
     task: TaskType = TaskType.NER # Default task is NER
     input_text: Optional[str]
     use_external: bool = False # Default is False. To be implemented.
     options: Dict = { "lang": "pt "}
 
-"""
-Model representing the user responses for analysis.
-"""
+
 class AnalysisResponse(BaseModel):
+    """
+    Model representing the user responses for analysis.
+    """
     id: uuid.UUID
     task: TaskType
     engine: str

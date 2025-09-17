@@ -2,7 +2,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.routes import healthz
+# Importing routes
+from api.routes import healthz, analyze
 
 
 # -- Constants --
@@ -27,3 +28,4 @@ app.add_middleware(
 
 # --- Routes ---
 app.include_router(healthz.router, prefix=API_PREFIX)
+app.include_router(analyze.router, prefix=API_PREFIX)

@@ -1,7 +1,7 @@
 from datetime import datetime
 import uuid
 from pydantic import BaseModel, Field
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 from enum import Enum
 
 """
@@ -30,7 +30,7 @@ class AnalysisResponse(BaseModel):
     id: uuid.UUID
     task: TaskType
     engine: str
-    result: Dict
+    result: List[Dict]
     elapsed_ms: int
     received_at: datetime = Field(default_factory=datetime.now)
     

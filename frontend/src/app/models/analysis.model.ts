@@ -1,8 +1,8 @@
 export interface AnalysisRequest {
     task: string;
     input_text?: string;
-    use_external: boolean;
-    options: { [key: string]: any };
+    use_external?: boolean;
+    options?: { [key: string]: any };
 }
 
 export interface AnalysisResponse {

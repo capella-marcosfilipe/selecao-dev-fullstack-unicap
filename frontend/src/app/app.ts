@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class App {
   // --- State signals ---
-  protected inputText = signal<string>('O Marcos Filipe estuda na UNICAP e mora no Recife');
+  protected inputText = signal<string>('');
   protected analysisResult = signal<AnalysisResponse | null>(null);
   protected isLoading = signal<boolean>(false);
   protected error = signal<string | null>(null);

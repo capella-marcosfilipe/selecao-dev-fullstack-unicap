@@ -1,56 +1,168 @@
 .container {
   max-width: 800px;
   margin: 2rem auto;
-  font-family: sans-serif;
-  padding: 1rem;
+  padding: 2.5rem;
+  background-color: var(--surface-light);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
-header { text-align: center; margin-bottom: 2rem; }
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  color: var(--primary-accent);
+  font-weight: 700;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+
+/* --- Formulário e Botão --- */
 .form-section textarea {
   width: 100%;
   min-height: 150px;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 1rem;
+  font-family: inherit;
+  background-color: #fff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-section textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
 }
 
 .form-section button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.85rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
   cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-accent);
+  color: #fff;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
 }
 
-.state-section { margin-top: 1.5rem; text-align: center; }
-.error { color: red; }
-.result-section { margin-top: 2rem; }
-.result-metadata { display: flex; gap: 1rem; margin-bottom: 1rem; color: #555; }
-.entities-container { display: flex; flex-wrap: wrap; gap: 1.25rem; padding: 1rem; border: 1px solid #ccc; }
+.form-section button:hover:not(:disabled) {
+  background-color: var(--secondary-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section button:disabled {
+  background-color: #a5a1ff;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+
+/* --- Seções de Estado (Loading, Erro, Resultado) --- */
+.state-section {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: #f9fafb;
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.05);
+  color: var(--error-color);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.result-section {
+  margin-top: 2.5rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.result-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.result-metadata span strong {
+  color: var(--text-primary);
+}
+
+.result-section h3 {
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+
+/* --- Entidades --- */
+.entities-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .entity {
-  padding: 0.5rem;
-  border-radius: 4px;
-  background-color: #eee;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  background-color: #f3f4f6;
   position: relative;
-  border: 1px solid #ddd;
+  font-weight: 500;
+  transition: transform 0.2s;
+  border: 1px solid var(--border-color);
+}
+.entity:hover {
+  transform: translateY(-2px);
 }
 
 .entity::after {
   content: attr(data-label);
   position: absolute;
-  top: -1.2em;
-  left: 0;
-  font-size: 0.7em;
+  top: -1.5em;
+  left: 0.2em;
+  font-size: 0.75em;
   font-weight: bold;
-  color: #333;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  background-color: var(--highlight-blue);
+  color: #fff;
+}
+
+
+/* --- Animações e Spinner --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .spinner {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid var(--primary-accent);
   border-radius: 50%;
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
 }
 
 @keyframes spin {

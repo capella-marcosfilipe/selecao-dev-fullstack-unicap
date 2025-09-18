@@ -1,6 +1,7 @@
 <main class="container">
     <header>
-        <h1>Desafio FASA/UNICAP</h1>
+        <h1>Analisador de Entidades com IA</h1>
+        <p>Projeto de Desafio - FASA/UNICAP</p>
     </header>
 
     <section class="form-section">
@@ -19,7 +20,7 @@
         <p>Analisando...</p>
     </section>
 
-    <section class="state-section error">
+    <section class="state-section error" *ngIf="error()"> 
         <p>{{ error() }}</p>
     </section>
 

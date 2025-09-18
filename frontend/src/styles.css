@@ -20,3 +20,37 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.highlighted-text-container {
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.entity-highlight {
+  padding: 0.1em 0.3em;
+  margin: 0 0.1em;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.entity-highlight.per {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-bottom: 2px solid #3b82f6;
+}
+.entity-highlight.org {
+  background-color: rgba(16, 185, 129, 0.2);
+  border-bottom: 2px solid #10b981;
+}
+.entity-highlight.loc {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-bottom: 2px solid #ef4444;
+}
+.entity-highlight.misc {
+  background-color: rgba(107, 114, 128, 0.2);
+  border-bottom: 2px solid #6b7280;
+}

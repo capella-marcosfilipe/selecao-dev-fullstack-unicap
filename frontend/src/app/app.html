@@ -25,19 +25,24 @@
     </section>
 
     <section class="result-section" *ngIf="analysisResult()">
-        <h2>Resultado da Análise</h2>
+        <h2>Texto Analisado:</h2>
+        <div class="highlighted-text-container" [innerHTML]="highlightedHtml()">
+        </div>
+
+        <h3>Entidades Encontradas:</h3>
+        <div class="entities-container" *ngIf="analysisResult()?.result?.['entities']?.length > 0; else noEntities">
+            <span *ngFor="let entity of analysisResult()?.result?.['entities']" class="entity" [attr.data-label]="entity.label">
+                {{ entity.text }}
+            </span>
+        </div>
+
+        <h4>Mais informações sobre a análise</h4>
         <div class="result-metadata">
             <span><strong>ID:</strong> {{ analysisResult()?.id }}</span>
             <span><strong>Motor:</strong> {{ analysisResult()?.engine }}</span>
             <span><strong>Tempo:</strong> {{ analysisResult()?.elapsed_ms }}ms</span>
         </div>
 
-        <h3>Entidades Encontradas:</h3>
-        <div class="entities-container" *ngIf="analysisResult()?.result?.['entities']?.length > 0; else noEntities">
-        <span *ngFor="let entity of analysisResult()?.result?.['entities']" class="entity" [attr.data-label]="entity.label">
-            {{ entity.text }}
-        </span>
-        </div>
         <ng-template #noEntities>
         <p>Nenhuma entidade encontrada no texto.</p>
         </ng-template>

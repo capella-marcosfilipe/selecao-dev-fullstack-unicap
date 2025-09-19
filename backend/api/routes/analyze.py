@@ -1,8 +1,11 @@
-import uuid
 import logging
+import uuid
+
 from fastapi import APIRouter, HTTPException
+
 from schemas.analysis import AnalysisRequest, AnalysisResponse
 from services.registry import task_registry
+
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,7 +27,7 @@ def analyze(request: AnalysisRequest):
     
     # 2nd - Calls the specialist service to process the request
     try:
-        service_response = specialist_service.execute(request)
+        service_response = specialist_service.execute(request.input_text)
         
         # 3rd - Prepares the AnalysisResponse
         response = AnalysisResponse(

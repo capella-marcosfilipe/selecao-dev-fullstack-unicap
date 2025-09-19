@@ -1,8 +1,9 @@
-from datetime import datetime
 import uuid
-from pydantic import BaseModel, Field
-from typing import Dict, Optional
+from datetime import datetime
 from enum import Enum
+from typing import Dict, Optional
+
+from pydantic import BaseModel, Field
 
 
 class TaskType(str, Enum):

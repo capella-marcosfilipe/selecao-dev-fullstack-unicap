@@ -7,4 +7,4 @@ set -e
 # alembic upgrade head
 
 # Start Gunicorn
-gunicorn api.main:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT
+python -m gunicorn api.main:app -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT

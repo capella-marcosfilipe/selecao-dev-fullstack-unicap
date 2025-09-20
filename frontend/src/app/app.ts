@@ -71,36 +71,49 @@ export class App {
 
   private generateHighlightedHtml(text: string, entities: any[]): string {
     /**
-     * A method to add a gimmick to the html so we can represent the found NER entities directly into the textarea.
+     * Generates an HTML string with named entities highlighted.
+     * This method iterates through the original text and a list of entities,
+     * wrapping each entity in a <span> tag with appropriate classes for styling.
+     *
+     * @param text The original input text.
+     * @param entities An array of entity objects, each with a `text` and `label` property.
+     * @returns An HTML string with the entities highlighted.
      */
 
-    // If there's nothing to work with, return it.
+    // If there's no text or no entities, return the original text.
     if (!text || !entities || entities.length === 0) {
       return text
     }
 
-    // Sorts the entities by their position in the text.
+    // Sort entities by their starting position in the text to process them in order.
     const sortedEntities = entities.sort((a, b) => text.indexOf(a.text) - text.indexOf(b.text));
 
     let lastIndex = 0;
     const parts = [];
 
+    // Iterate through each entity to build the highlighted HTML.
     sortedEntities.forEach(entity => {
+      // Find the starting index of the current entity in the text.
       const startIndex = text.indexOf(entity.text, lastIndex);
 
       if (startIndex !== -1) {
+        // Add the text segment before the current entity.
         parts.push(text.substring(lastIndex, startIndex));
 
+        // Create the highlighted HTML for the entity.
         const highlightedPart =
           `<span class="entity-highlight ${entity.label.toLowerCase()}" data-label="${entity.label}">${entity.text}</span>`;
         parts.push(highlightedPart);
 
+        // Update the last index to the end of the current entity.
         lastIndex = startIndex + entity.text.length;
       }
     });
 
+    // Add the remaining text after the last entity.
     parts.push(text.substring(lastIndex));
 
+    // Join all parts to form the final HTML string.
     return parts.join('');
   }
 

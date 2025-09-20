@@ -2,11 +2,11 @@
 name = "backend"
 version = "0.1.0"
 description = "Backend API for the Intership Application Challenge from FASA/UNICAP for the role of Intern in Full-Stack Development with applied AI"
-author = "Marcos Filipe Gonçalves Capella"
 readme = "../README.md"
 requires-python = ">=3.10.11"
 dependencies = [
     "fastapi>=0.116.2",
+    "gunicorn>=23.0.0",
     "pt-core-news-sm",
     "pydantic>=2.11.9",
     "spacy>=3.8.7",

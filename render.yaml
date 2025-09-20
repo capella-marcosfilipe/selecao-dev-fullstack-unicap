@@ -7,5 +7,5 @@ services:
     buildCommand: |-
       pip install uv
       uv sync --reinstall
-      python -m spacy download pt_core_news_sm
+      uv run python -m spacy download pt_core_news_sm
     startCommand: ./start.sh

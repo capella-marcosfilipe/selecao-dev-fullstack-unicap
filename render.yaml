@@ -5,7 +5,7 @@ services:
     rootDir: backend
     plan: free
     buildCommand: |-
-      pip install uv
-      uv sync --reinstall
-      uv run python -m spacy download pt_core_news_sm
+      pip install -U pip
+      pip install .
+      python -m spacy download pt_core_news_sm
     startCommand: ./start.sh

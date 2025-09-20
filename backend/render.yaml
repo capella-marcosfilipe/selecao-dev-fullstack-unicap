@@ -2,6 +2,7 @@ services:
   - type: web
     name: python-starter
     env: python
+    rootDir: backend
     plan: free
     buildCommand: pip install uv && uv sync
     startCommand: ./start.sh

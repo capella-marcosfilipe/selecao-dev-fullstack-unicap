@@ -1,8 +1,11 @@
 services:
   - type: web
-    name: python-starter
+    name: analisador-de-entidades-api
     env: python
     rootDir: backend
     plan: free
-    buildCommand: pip install uv && uv sync
+    buildCommand: |-
+      pip install uv
+      uv sync --reinstall
+      python -m spacy download pt_core_news_sm
     startCommand: ./start.sh

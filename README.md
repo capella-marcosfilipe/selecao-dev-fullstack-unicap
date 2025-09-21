@@ -10,7 +10,7 @@ O objetivo principal foi não apenas entregar um MVP funcional, mas também demo
 
 **URLs em Produção:**
 -   **Frontend (Vercel):** `https://selecao-dev-fullstack-unicap.vercel.app`
--   **Backend API (Render):** `https://analisador-de-entidades-api.onrender.com/api/v1`
+-   **Backend API (Render):** `https://analisador-de-entidades-api.onrender.com/api/v1` (⚠️ *O serviço do Render encerra instâncias gratuitas por inatividade, o que pode atrasar as solicitações em 50 segundos ou mais. Após a carga da primeira solicitação, o serviço será reativado e deve funcionar normalmente.*)
 
 ---
 
